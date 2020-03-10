@@ -14,4 +14,3 @@ func hide():
 	
 func show():
 	$Intro.show()
-

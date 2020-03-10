@@ -22,10 +22,17 @@ func play():
 func game_over():
 	# Stop the player from moving
 	$Player.applied_force.x = 0
+	$Player.linear_velocity.x = 0
 	Score.set_run_score(score)
 	$GameOverHUD.show()
 
 
+func update_score():
+	# Updates the current score
+	score = int($Player.position.x - 145) / 10
+	$HUD/Score.text = str(score)
+
+	
 func _process(delta):
 	# Updates the player's movements
 	if active and $Player.alive:
@@ -37,8 +44,7 @@ func _process(delta):
 	$Floor.position.x = $Player.position.x
 	# Updates the location obstacles spawn
 	$ObstacleSpawn.position.x = $Player.position.x + 300
-	# Updates the current score
-	$HUD/Score.text = str(score)
+	update_score()
 
 
 func _on_ObstacleTimer_timeout():

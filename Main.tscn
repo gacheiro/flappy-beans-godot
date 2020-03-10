@@ -48,7 +48,6 @@ current = true
 limit_left = 0
 limit_top = 0
 limit_bottom = 515
-offset_h = 1.0
 
 [node name="HUD" parent="." instance=ExtResource( 5 )]
 
